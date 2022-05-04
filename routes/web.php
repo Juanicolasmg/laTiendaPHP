@@ -138,6 +138,6 @@ Route::get('/Paises', function () {
 
 //Ruta crear producto
 
-Route::get ('producto', function(){
+Route::get ('producto/crear', function(){
     return view('productos.create');
 });
