@@ -135,3 +135,9 @@ Route::get('/Paises', function () {
 
     return view('paises')->with('paises', $paises);
 });
+
+//Ruta crear producto
+
+Route::get ('producto', function(){
+    return view('productos.create');
+});
