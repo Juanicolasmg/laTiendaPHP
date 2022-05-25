@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class MarcaSeeder extends Seeder
+class ProductoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class MarcaSeeder extends Seeder
      */
     public function run()
     {
-        Marca::factory(10)->create();
+        //
     }
 }

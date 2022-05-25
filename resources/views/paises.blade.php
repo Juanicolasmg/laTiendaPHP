@@ -26,8 +26,8 @@
                 <tr>
                     <td style="color: red" rowspan='{{ count($pais["CIUDADES"]) }}' >{{ $nombre }}</td>
                     <td style="color: blue" rowspan='{{ count($pais["CIUDADES"]) }}' >{{ $pais["CAPITAL"] }}</td>
-                    <td style="color: purple" rowspan='{{ count($pais["CIUDADES"]) }}' >{{ $pais["MONEDA"] }}</td>
-                    <td style="color: #000000" rowspan='{{ count($pais["CIUDADES"]) }}' >{{ $pais["POBLACION"] }} Millones</td>
+                    <td style="color: yellow" rowspan='{{ count($pais["CIUDADES"]) }}' >{{ $pais["MONEDA"] }}</td>
+                    <td style="color: while" rowspan='{{ count($pais["CIUDADES"]) }}' >{{ $pais["POBLACION"] }} Millones</td>
                     @foreach($pais["CIUDADES"] as $ciudades )
                         <td style="color: green">{{ $ciudades }}</td>
                         </tr>

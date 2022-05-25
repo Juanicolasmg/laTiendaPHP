@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Welcome');
 });
 
-//Primera ruta
-//Clase Route -> metodo get -> colbag (Que hara cuando invoque la ruta)
-Route::get('home', function(){ 
-    echo "Le dijo la araña a la mosca";
+// First Route
+// Route -> get
+
+Route::get('/Home', function () { 
+    echo "Hola le dijo la araña a la mosca"; 
 });
 
 Route::get('/Arreglo', function() {
@@ -136,8 +138,9 @@ Route::get('/Paises', function () {
     return view('paises')->with('paises', $paises);
 });
 
-//Ruta crear producto
+/**
+ * Rutas REST Producto
+ * 
+ */
 
-Route::get ('producto/crear', function(){
-    return view('productos.create');
-});
+ Route::resource('productos', ProductoController::class);
