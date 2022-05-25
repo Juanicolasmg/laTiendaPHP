@@ -47,7 +47,7 @@
       <div class="row">
         <div class="input-field col s8">
           <div class="file-field input-field">
-            <div class="btn green darken-1">
+            <div class="btn red">
               <span>Imagen del Producto</span>
               <input type="file" name="imagen">
             </div>
@@ -84,7 +84,7 @@
       </div>
       <div class="row">
         <div class="col s8">
-          <button class="btn waves-effect waves-light green darken-1" type="submit" name="action">Guardar</button>
+          <button class="btn red" type="submit" name="action">Guardar</button>
         </div>
       </div>
     </form>

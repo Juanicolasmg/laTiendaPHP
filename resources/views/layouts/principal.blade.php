@@ -8,12 +8,12 @@
     <title>La Tienda de PHP</title>
 </head>
 <body>
-    <nav class="green darken-1">
+    <nav class="red">
         <div class="nav-wrapper">
-        <a href="#!" class="brand-logo center">LA TIENDA PHP</a>
+        <a href="#!" class="brand-logo center">TIENDA PHP</a>
         <ul class="left hide-on-med-and-down">
-            <li><a href="badges.html">Productos</a></li>
-            <li class="active"><a href="collapsible.html">Pedidos</a></li>
+            <li><a href="{{ url('productos/create')}}">Productos</a></li>
+            <li class="active"><a href="{{ url('productos/#')}}">Catalogo</a></li>
         </ul>
         </div>
     </nav>
@@ -25,9 +25,15 @@
 <script src="{{ asset('materialize/js/materialize.js') }}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems, []);
+        //codigo de inicialización de los datos
+        let tabs = document.querySelector(".tabs");
+        var instance = M.Tabs.init(tabs);
+        //codigo inicialización de los select
+        var elems = document.querySelectorAll('select');        
+        var instances = M.FormSelect.init(elems, []);
     });
 </script>
 </body>
+
+
 </html>
