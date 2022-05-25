@@ -18,7 +18,13 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        echo "Aquí va a ir el catálogo de productos.";
+        //echo "Aquí va a ir el catálogo de productos.";
+        //Seleccionar los productos en un arreglo
+        $productos = Producto::all();
+        //mostrar la vista del catalogo, llevandole los productos
+        return view('producto.index')
+                ->with('productos', $productos);
+        
     }
 
     /**
@@ -39,21 +45,36 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(StoreProductRequest $request)
     {
+        //2. Crear validación
         $p = new Producto();
         $p->nombre = $request->nombre;
         $p->descripcion = $request->desc;
         $p->precio = $request->precio;
         $p->marca_id = $request->marca;
         $p->categoria_id = $request->categoria;
+        //obtener file
+        $archivo = $request->imagen;
+        //nombre original
+        $p->imagen = $archivo->getClientOriginalName();
+        
+        //ruta donde se almacena el archivo
+        $ruta = public_path()."/img/productos";
+        
+        //movemos archivo a la ruta
+        $archivo->move($ruta , 
+                        $archivo->getClientOriginalName());
+
         $p->save();
         
         //Redireccionar a una ruta disponible.
 
-        return redirect('productos/create')->with('mensaje', "Producto registrado exitosamente.");
-        
+        return redirect('productos/create')
+                ->with('mensaje', "Producto registrado exitosamente.");
     }
+
 
     /**
      * Display the specified resource.
