@@ -42,6 +42,7 @@
                     <h3>Añadir al carrito</h3>
                 </div>
                 <input type="hidden" name="prod_id" value="{{ $producto->id }}">
+                <input type="hidden" name="precio" value="{{ $producto->precio }}">
                 <div class="row">
                     <div class="col s4 input-field">
                         <select name="cantidad" id="cantidad">
