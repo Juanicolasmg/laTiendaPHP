@@ -8,22 +8,35 @@
         <h1> Catálogo de Productos </h1>
     </div>
     
+    @if(session('mensajito'))
+
+        <div class="row">
+          <div class="col s12 m12">
+            <div class="card   cyan lighten-1">
+              <div class="card-content white-text">
+                <span class="card-title">{{ session('mensajito') }}</span>
+                <a class="waves-effect waves-light btn" href="{{ route('cart.index') }}">Ir al carrito</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    @endif
+
     <div class="row">
         @foreach($productos as $producto)
         <div class="col s12 m4">
             <div class="card">
                 <div class="card-image">
-                <img width="720px" height="280px" src="{{ asset('img/productos/' .$producto->imagen) }}">
-                <span style=color:#eeeeee; class="card-title">{{$producto->nombre}}</span>
+                    <img src="{{ asset('img/producto/'.$producto->imagen) }}" width='500px' height='400px'>
+                    <span class="card-title black">{{ $producto->nombre }}</span>
                 </div>
                 <div class="card-content">
-                    <ul>
-                        <li> Descripción: {{ $producto->descripcion }} </li>
-                        <li> Precio: {{ $producto->precio }} </li>
-                    </ul>
+                    <div>Descripción : {{ $producto->descripcion }}</div>
+                    <div>Precio : {{ $producto->precio }}</div>
                 </div>
                 <div class="card-action">
-                <a href="#">VER DETALLES</a>
+                    <a href="{{ route('productos.show', $producto->id) }}" class="cyan-text text-darken-3">Ver detalles</a>
                 </div>
             </div>
         </div>

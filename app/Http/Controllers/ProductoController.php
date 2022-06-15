@@ -84,7 +84,14 @@ class ProductoController extends Controller
      */
     public function show($producto)
     {
-        echo "Aquí se va a mostrar el detalle del producto.";
+        // Seleccionar el producto a mostrar
+
+        $p = Producto::find($producto);
+
+        // Mostrar vista de detalles de producto
+        // Enviándole el producto seleccionado
+
+        return view('producto.details')->with('producto', $p);
     }
 
     /**
